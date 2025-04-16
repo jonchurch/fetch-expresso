@@ -1,3 +1,5 @@
+import { BodyInit } from './types';
+
 export class ResAccumulator {
   private _status = 200
   private _headers = new Headers()
@@ -89,7 +91,7 @@ export class ResAccumulator {
   finalize(): Response {
     this.assertWritable()
     this._finalized = true
-    return new Response(this._body ?? null, {
+    return new Response(this._body, {
       status: this._status,
       headers: this._headers,
     })
