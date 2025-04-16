@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "check": "tsc --noEmit"
   },
   "repository": {
@@ -22,6 +23,7 @@
     "@tsconfig/node20": "^20.1.5",
     "@types/node": "^22.14.1",
     "typescript": "^5.8.3",
-    "undici-types": "^6.21.0"
+    "undici-types": "^6.21.0",
+    "vitest": "^3.1.1"
   }
 }

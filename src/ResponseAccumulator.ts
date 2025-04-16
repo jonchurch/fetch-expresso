@@ -8,6 +8,7 @@ export class ResAccumulator {
 
   // --- Status ---
   status(code: number): this {
+    this.assertWritable()
     this._status = code
     return this
   }
@@ -18,11 +19,13 @@ export class ResAccumulator {
 
   // --- Headers ---
   set(name: string, value: string): this {
+    this.assertWritable()
     this._headers.set(name, value)
     return this
   }
 
   headers(headers: Record<string, string>): this {
+    this.assertWritable()
     for (const [key, value] of Object.entries(headers)) {
       this._headers.set(key, value)
     }
@@ -39,6 +42,7 @@ export class ResAccumulator {
 
   // --- Content-Type Shortcut ---
   type(mime: string): this {
+    this.assertWritable()
     this._headers.set('Content-Type', mime)
     return this
   }
